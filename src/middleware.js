@@ -2,6 +2,7 @@
 import { NextResponse } from "next/server";
 import { validateToken } from "./app/functions/validateToken";
 
+
 export const middleware = (request) => {
 
     const token = request.cookies.get('token')?.value;
