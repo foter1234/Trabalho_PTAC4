@@ -24,19 +24,20 @@ const getUserAuthenticated = (user) => {
 let userAuth = {}
 
      usuario.map((usuarios)=>{
-     if (usuarios.email == userAuth.email && usuarios.password == userAuth.password) {
-        userAuth = user
+     if (usuarios.email == user.email && usuarios.password == user.password) {
+        userAuth = usuarios
 
      }
 
 }
 )
-return userAuth   
 
+return userAuth
 }
 
 const getUsers = () =>{
-    
+
+    return usuario
 
 }
 export { getUsers, getUserAuthenticated };
