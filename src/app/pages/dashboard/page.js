@@ -12,7 +12,7 @@ return (
         <h1>Dashboard</h1>
     
         {usuarios.map((usuario) => (
-            <h1>{usuarios.nome}</h1>
+            <h1>{usuario.nome}</h1>
         ))}
 
 
