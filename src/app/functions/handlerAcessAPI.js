@@ -33,11 +33,12 @@ let userAuth = {}
 )
 
 return userAuth
+
 }
 
 const getUsers = () =>{
 
     return usuario
-
+    
 }
 export { getUsers, getUserAuthenticated };
