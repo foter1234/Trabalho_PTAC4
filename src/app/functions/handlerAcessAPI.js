@@ -24,12 +24,14 @@ const getUserAuthenticated = (user) => {
 let userAuth = {}
 
      usuario.map((usuarios)=>{
+
      if (usuarios.email == user.email && usuarios.password == user.password) {
         userAuth = usuarios
 
      }
 
 }
+
 )
 
 return userAuth
