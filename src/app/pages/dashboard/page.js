@@ -10,6 +10,8 @@ export default async function Dashboard() {
 
  
 const usuarios = getUsers();
+const users = getUsers();
+
 
 return (
     <div>
