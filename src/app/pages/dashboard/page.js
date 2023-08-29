@@ -4,6 +4,8 @@ import { getUsers } from "@/app/functions/handlerAcessAPI";
 //import { getUserAuthenticated } from "@/app/functions/handlerAcessAPI";
 // import React, { useState, useEffect } from 'react';
 import {Suspense} from 'react'
+import Link from 'next/link'
+
 
 
 export default async function Dashboard() {
@@ -25,6 +27,8 @@ return (
             <h1>{usuario.nome}</h1>
         ))}
 
+    <Link href="@/app/pages/alterar">Alterar</Link>
+    <Link href="@/app/pages/register">registrar</Link>
 </Suspense>
     </div>
 );

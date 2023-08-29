@@ -1,5 +1,3 @@
-
-
 export default async function ListUsers({users}) {
     
     await new Promise((resolve)=> setTimeout(resolve, 5000))

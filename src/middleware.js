@@ -11,6 +11,10 @@ export const middleware = (request) => {
 
     const urlDashboard = new URL('/pages/dashboard', request.url);
 
+    const urlregister = new URL('@app/pages/register', request.url);
+
+    const urlalterar = new URL('@app/pages/pages/alterar', request.url);
+
     const isTokenValidated = validateToken(token);
 
     if (!isTokenValidated || !token) {
@@ -26,10 +30,23 @@ export const middleware = (request) => {
         }
     }
 
+    if (isTokenValidated) {
+        if (request.nextUrl.pathname === '/') {
+            return NextResponse.redirect(urlregister);
+        }
+    }
+
+    if (isTokenValidated) {
+        if (request.nextUrl.pathname === '/') {
+            return NextResponse.redirect(urlalterar);
+        }
+    }
+
+
 
     NextResponse.next();
 };
 export const config = {
-    matcher: ['/', '/pages/dashboard']
+    matcher: ['/', '/pages/dashboard','/pages/register','/pages/alterar', ]
 };
 
