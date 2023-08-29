@@ -21,7 +21,7 @@ return (
 
         <Suspense fallback={<p>carregando...</p>}>
         
-        <ListUsers users={users}/>
+        <ListUsers user={users}/>
 
         {usuarios.map((usuario) => (
             <h1>{usuario.nome}</h1>

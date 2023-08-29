@@ -1,10 +1,10 @@
-export default async function ListUsers({users}) {
+export default async function ListUsers({user}) {
     
     await new Promise((resolve)=> setTimeout(resolve, 5000))
     return(
         <div>
-             {users?.map((user, index)=>
-             <p key={index}>{user.name}</p>
+             {user?.map((users, index)=>
+             <p key={index}>{users.nome}</p>
              )}
         </div>
     )
