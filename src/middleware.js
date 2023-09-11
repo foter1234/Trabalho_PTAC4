@@ -11,14 +11,25 @@ export const middleware = (request) => {
 
     const urlDashboard = new URL('/pages/dashboard', request.url);
 
-    const urlregister = new URL('@app/pages/register', request.url);
+    const urlregister = new URL('/pages/register', request.url);
 
-    const urlalterar = new URL('@app/pages/pages/alterar', request.url);
+    const urlalterar = new URL('/pages/alterar', request.url);
 
     const isTokenValidated = validateToken(token);
 
     if (!isTokenValidated || !token) {
         if (request.nextUrl.pathname === '/pages/dashboard') {
+            return NextResponse.redirect(urlLogin);
+        }
+    }
+
+    if (!isTokenValidated || !token) {
+        if (request.nextUrl.pathname === '/pages/alterar') {
+            return NextResponse.redirect(urlLogin);
+        }
+    }
+    if (!isTokenValidated || !token) {
+        if (request.nextUrl.pathname === '/pages/register') {
             return NextResponse.redirect(urlLogin);
         }
     }
