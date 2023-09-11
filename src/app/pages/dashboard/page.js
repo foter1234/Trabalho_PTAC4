@@ -27,8 +27,8 @@ return (
             <h1>{usuario.nome}</h1>
         ))}
 
-    <Link href="@/app/pages/alterar">Alterar</Link>
-    <Link href="@/app/pages/register">registrar</Link>
+    <Link href="/pages/alterar">Alterar</Link>
+    <Link href="/pages/register">registrar</Link>
 </Suspense>
     </div>
 );
