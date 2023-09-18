@@ -21,6 +21,7 @@ export default  function Login() {
        toast.error("erro no e-mail ou senha")
   }
       push('/pages/dashboard');
+      localStorage.setItem('nome', userAuth.nome)
 
     } catch {
       toast.error("Erro na aplicação")
