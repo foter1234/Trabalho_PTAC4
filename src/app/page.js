@@ -5,7 +5,7 @@ import handlerAcessUser from "./functions/handlerAcess"
 import { useRouter } from "next/navigation";
 import {ToastContainer, toast} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'
-
+import styles from "../app/pages/alterar/style.module.css"
 
 export default  function Login() {
   const [user, setUser] = useState({
@@ -32,21 +32,26 @@ export default  function Login() {
 
 
   return (
-    <div>
-      <h1>Login</h1>
-      <form onSubmit={handlerLogin}>
+   
+<div className={styles.Container}>
+      
+      <form onSubmit={handlerLogin} className={styles.form}>
+      <h1 className={styles.h1}>Login</h1>
         <input
           placeholder='E-mail'
           type="email"
+          className={styles.input}
           onChange={(e) => { setUser({ ...user, email: e.target.value }) }}>
         </input>
         <input
           placeholder='Senha'
+          className={styles.input}
           type='password'
           onChange={(e) => { setUser({ ...user, password: e.target.value }) }}>
         </input>
-        <button>Entrar</button>
+        <button  className={styles.button}>Entrar</button>
       </form>
+      <a href='/' className={styles.link}><button  className={styles.voltar}>Voltar</button></a>
       <ToastContainer/>
     </div>
   )

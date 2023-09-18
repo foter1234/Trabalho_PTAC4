@@ -4,24 +4,21 @@ import handlerAcessUser from "@/app/functions/handlerAcess"
 import { useRouter } from "next/navigation";
 import {ToastContainer, toast} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'
-
+import styles from "./style.module.css"
 
 export default  function alterar() {
   const [user, setUser] = useState({
     email: '',
     password: '',
   });
-  const { push, refresh } = useRouter();
+  const {refresh } = useRouter();
 
   const handlerLogin = async (e) => {
     e.preventDefault();
     try {
-       const userAuth = await handlerAcessUser(user)
-       if (userAuth.token === undefined) {
-       toast.error("erro no e-mail ou senha")
-  }
-      push('/pages/dashboard');
-      localStorage.setItem('nome', userAuth.nome)
+ 
+       toast.success("alterado com sucesso")
+
 
     } catch {
       toast.error("Erro na aplicação")
@@ -31,22 +28,25 @@ export default  function alterar() {
 
 
   return (
-    <div className="">
-      <h1>Login</h1>
-      <form onSubmit={handlerLogin}>
+    <div className={styles.Container}>
+      
+      <form onSubmit={handlerLogin} className={styles.form}>
+      <h1 className={styles.h1}>Alterar</h1>
         <input
           placeholder='E-mail'
           type="email"
+          className={styles.input}
           onChange={(e) => { setUser({ ...user, email: e.target.value }) }}>
         </input>
         <input
           placeholder='Senha'
+          className={styles.input}
           type='password'
           onChange={(e) => { setUser({ ...user, password: e.target.value }) }}>
         </input>
-        <button>Entrar</button>
+        <button  className={styles.button}>Alterar</button>
       </form>
-      <a href='/'><button>Voltar</button></a>
+      <a href='/' className={styles.link}><button  className={styles.voltar}>Voltar</button></a>
       <ToastContainer/>
     </div>
   )
