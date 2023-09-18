@@ -1,3 +1,4 @@
+import styles from '../pages/dashboard/style.module.css'
 export default async function ListUsers({user}) {
     
     await new Promise((resolve)=> setTimeout(resolve, 5000))
