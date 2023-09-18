@@ -31,7 +31,7 @@ export default  function alterar() {
 
 
   return (
-    <div>
+    <div className="">
       <h1>Login</h1>
       <form onSubmit={handlerLogin}>
         <input
