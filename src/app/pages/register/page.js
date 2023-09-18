@@ -17,13 +17,13 @@ export default  function register() {
     e.preventDefault();
     try {
 
-      toast.success("registrado com sucesso")
-      const voltar=push('/pages/dashboard');
-
+      toast.success("registrado com sucesso")         
+    
     } catch {
       toast.error("Erro na aplicação")
       refresh();
     }
+
   }
   return (
     <div>
@@ -40,7 +40,9 @@ export default  function register() {
           onChange={(e) => { setUser({ ...user, password: e.target.value }) }}>
         </input>
         <button>Entrar</button>
+
       </form>
+      <a href='/'><button>Voltar</button></a>
       <ToastContainer/>
     </div>
   )

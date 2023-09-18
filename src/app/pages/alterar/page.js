@@ -46,6 +46,7 @@ export default  function alterar() {
         </input>
         <button>Entrar</button>
       </form>
+      <a href='/'><button>Voltar</button></a>
       <ToastContainer/>
     </div>
   )
