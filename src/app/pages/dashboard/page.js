@@ -10,9 +10,14 @@ import styles from '@/app/pages/dashboard/style.module.css';
 
 export default async function Dashboard() {
 
- 
-const usuarios = getUsers();
-const users = getUsers();
+
+  const req = await fetch("https://aula-17-10-chi.vercel.app/users", {
+    cache: "no-cache"
+  });
+  const users = await req.json();
+
+//const users = getUsers();
+
 
 
 return (

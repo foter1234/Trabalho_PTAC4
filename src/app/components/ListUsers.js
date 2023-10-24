@@ -19,31 +19,9 @@ export default async function ListUsers({user}) {
                <div class={styles.img} >
                 
                </div>
-               <h3 > {users.nome}</h3>
+               <h3 > {users.name}</h3>
              </div>
-             </div>
-             <div class={styles.card2} key={index}>
-               <div class={styles.card22}>
-               
-               <div class={styles.img} >
-                
-               </div>
-               <h3 > {users.nome}</h3>
-             </div>
-             </div>
-             <div class={styles.card2} key={index}>
-               <div class={styles.card22}>
-               
-               <div class={styles.img} >
-                
-               </div>
-               <h3 > {users.nome}</h3>
-             </div>
-             </div>
-   
-
-              
-            
+             </div>   
              </div>
              
              </div>
