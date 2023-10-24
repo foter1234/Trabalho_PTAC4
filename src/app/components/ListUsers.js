@@ -8,7 +8,7 @@ export default async function ListUsers({user}) {
     return(
         <div>
              {user?.map((users, index)=>
-             <div>
+             <div class={styles.divPrincipal}>
             
              
              <div class={styles.conteiner}>
