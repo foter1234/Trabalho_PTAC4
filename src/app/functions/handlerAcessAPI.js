@@ -22,7 +22,16 @@ const getUserAuthenticated = async (user)=>{
 
 
 const getUsers = async () =>{
-
+    
+   try{
+      const responseOfApi = await fetch(url + '/users', {
+         cache: "no-cache"
+      })
+      const users = await responseOfApi.json();
+      return users;
+   }catch{
+     return null;
+   }
 }
 
 const postUser = async (user) =>{

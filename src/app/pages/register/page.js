@@ -1,25 +1,31 @@
 'use client'
 import { useState } from "react";
+import { postUser } from "@/app/functions/handlerAcessAPI";
 import handlerAcessUser from "@/app/functions/handlerAcess"
 import { useRouter } from "next/navigation";
 import {ToastContainer, toast} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'
 import styles from "../alterar/style.module.css"
+import { postUser } from "@/app/functions/handlerAcessAPI";
 
 export default  function register() {
+
   const [user, setUser] = useState({
     email: '',
     password: '',
   });
+
+  const {push} =useRouter()
   const {refresh } = useRouter();
 
   const handlerLogin = async (e) => {
     e.preventDefault();
     try {
+      await postUser(user)
+      return push("/pages/dashboard")
 
-      toast.success("registrado com sucesso")         
-    
     } catch {
+      
       toast.error("Erro na aplicação")
       refresh();
     }
