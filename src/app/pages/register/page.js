@@ -1,6 +1,5 @@
 'use client'
 import { useState } from "react";
-import { postUser } from "@/app/functions/handlerAcessAPI";
 import handlerAcessUser from "@/app/functions/handlerAcess"
 import { useRouter } from "next/navigation";
 import {ToastContainer, toast} from 'react-toastify';
@@ -11,6 +10,7 @@ import { postUser } from "@/app/functions/handlerAcessAPI";
 export default  function register() {
 
   const [user, setUser] = useState({
+    name: '',
     email: '',
     password: '',
   });
@@ -18,7 +18,7 @@ export default  function register() {
   const {push} =useRouter()
   const {refresh } = useRouter();
 
-  const handlerLogin = async (e) => {
+  const handlerFormSubmit = async (e) => {
     e.preventDefault();
     try {
       await postUser(user)
@@ -34,8 +34,16 @@ export default  function register() {
   return (
     <div className={styles.Container}>
       
-      <form onSubmit={handlerLogin} className={styles.form}>
+      <form onSubmit={handlerFormSubmit} className={styles.form}>
       <h1 className={styles.h1}>registrar</h1>
+
+      <input
+          placeholder='nome'
+          type="nome"
+          className={styles.input}
+          onChange={(e) => { setUser({ ...user, nome: e.target.value }) }}>
+        </input>
+
         <input
           placeholder='E-mail'
           type="email"
