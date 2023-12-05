@@ -5,6 +5,7 @@
 .body::-webkit-scrollbar-track {
   background: rgb(0, 0, 0);        
 }
+
 .body::-webkit-scrollbar-thumb {
   background-color: rgb(49, 49, 49);    
   border-radius: 20px;       
@@ -14,15 +15,18 @@
 .container {
     width: 100%;
     max-width: 1200px; 
-    margin: 0 auto; 
-    padding-left: 0;
-    margin: 0;
     list-style: none;
     text-align: center;
+    font-family: helvetica;
+    display: flex;
+    align-items: center;
+    font-family: Comic Sans MS;
   }
   
   .nav{
-    background: #ffffff;font-size: 16px;position: relative;
+    background: #ffffff;
+    font-size: 16px;
+    position: relative;
   }
   
   .nav > ul > li {
@@ -42,13 +46,18 @@
     color: #ffffff;
     border-bottom: 3px solid #6d6969;
   }
+
   .divprincipal{
     text-align: center;
+    font-family: Comic Sans MS;
   }
 
+  .titulo{
+    text-align: center;
+    align-items: center;
+  }
   
   .conteiner {
-
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 2%;
@@ -57,19 +66,18 @@
     text-align: center;
     margin-left: 10%;
   }
+  
   .divPrincipal{
     width: 100%;
-    
   }
-  
+
   .card2 {
-    width: 190px;
-    height: 254px;
+    width: 100px;
+    height: 180px;
     border-radius: 20px;
     transition: all 0.3s;
     margin: 10px;
     margin-left:  120%;
-   
   }
   
   .card2 .img {
@@ -77,16 +85,16 @@
     height: 70px;
     border-radius: 100%;
     margin: auto;
-    margin-top: 20px;
   }
   
   .card22 {
-    
-    width: 190px;
-    height: 254px;
-    background-color: #afafaf;
-    border-radius: 0;
+    width: 100px;
+    height: 180px;
+    background-color: rgb(136, 255, 0);
     transition: all 0.2s;
+    margin-left: 55px;
+    text-align: center;
+    align-items: center;
   }
 
   @media screen and (max-width: 768px) {
@@ -98,15 +106,25 @@
   
 
   }
-
   
   .card22:hover {
     transform: scale(0.98);
     border-radius: 20px;
-    background-color: #2e2e2e;
+    background-color: #00ff4c;
   }
-
 
 .h3{
   margin-top: 10%;
+}
+
+.dropdown{
+  color: rgb(255, 255, 255);
+  padding: 5px;
+  border-radius: 10px;
+  border: none;
+}
+
+.dropdown:hover{
+  transition: 1s;
+  background-color: rgb(21, 255, 0);
 }

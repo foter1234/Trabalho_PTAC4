@@ -9,8 +9,8 @@ import styles from "../app/pages/alterar/style.module.css"
 
 export default  function Login() {
   const [user, setUser] = useState({
-    email: '',
-    password: '',
+    usuario: '',
+    senha: '',
   });
   const { push, refresh } = useRouter();
 
@@ -34,24 +34,29 @@ export default  function Login() {
   return (
    
 <div className={styles.Container}>
-      
-      <form onSubmit={handlerLogin} className={styles.form}>
+  <div className={styles.empurrar}></div>
+      <div className={styles.form}>
+      <form onSubmit={handlerLogin}>
       <h1 className={styles.h1}>Login</h1>
+      
         <input
-          placeholder='E-mail'
-          type="email"
+          placeholder='nome'
+          name="nome"                   
+          type="text"
           className={styles.input}
-          onChange={(e) => { setUser({ ...user, email: e.target.value }) }}>
+          onChange={(e) => { setUser({ ...user, usuario: e.target.value }) }}>
         </input>
+
         <input
           placeholder='Senha'
           className={styles.input}
           type='password'
-          onChange={(e) => { setUser({ ...user, password: e.target.value }) }}>
+          onChange={(e) => { setUser({ ...user, senha: e.target.value }) }}>
         </input>
         <button  className={styles.button}>Entrar</button>
       </form>
       <a href='/' className={styles.link}><button  className={styles.voltar}>Voltar</button></a>
+      </div>
       <ToastContainer/>
     </div>
   )

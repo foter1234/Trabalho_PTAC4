@@ -1,10 +1,13 @@
 'use server'
+import {cookies} from "next/headers"
 
-const url ="https://aula-17-10-chi.vercel.app"
+
+const url = "http://localhost:3001"
+//const url ="https://aula-17-10-chi.vercel.app"
 
 const getUserAuthenticated = async (user)=>{
     
-    const responseOfApi = await fetch(url + "/user/authenticated",
+    const responseOfApi = await fetch(url + "/logar",
      {
         cache:"no-cache",
         method:"POST",
@@ -15,16 +18,19 @@ const getUserAuthenticated = async (user)=>{
     )
    let userAuth = await responseOfApi.json();
    return userAuth
+} 
 
-}
+const getUsers = async (user) =>{
+    const token = cookies().get('token')?.value;
 
-
-
-const getUsers = async () =>{
-    
    try{
-      const responseOfApi = await fetch(url + '/users', {
-         cache: "no-cache"
+      const responseOfApi = await fetch(url + '/usuarios/listar', {
+         cache: "no-cache",
+         headers:{
+         'Content-Type':'Application/json',
+         Cookie: `token=${token}`
+         },
+         body: JSON.stringify(user)
       })
       const users = await responseOfApi.json();
       return users;
@@ -34,11 +40,15 @@ const getUsers = async () =>{
 }
 
 const postUser = async (user) =>{
+   const token = cookies().get('token')?.value;
    try {
-      const responseOfApi = await fetch(url+ "/user",{
+      const responseOfApi = await fetch(url + "/usuarios/cadastrar",  {
          method:"POST",
-         headers: {'Content-Type':'Aplication/json'},
-         body: JSON.stringify(user)
+         headers:{
+            'Content-Type':'Application/json',
+            Cookie: `token=${token}`
+            },
+            body: JSON.stringify(user)
       })
       const userSave = await responseOfApi.json()
      return userSave 
@@ -46,26 +56,4 @@ const postUser = async (user) =>{
       return null
    }
 }
-
-const updateUser = async (user, id) =>{
-   const token = cookies().get('token')?.value;
-try {
-
-   const responseOfApi = await fetch(`${url}/user/${id}`, {
-      method:'PUT',
-      headers:{
-         'Content-Type':'Application/json',
-         Cookie: `token=${token}`
-      },
-      body: JSON.stringify(user)
-   })
-   const userSave = await responseOfApi.json()
-   return userSave
-   
-} catch{
-   return null
-}
-   
-}
-
-export { getUsers, getUserAuthenticated, postUser, updateUser };
+export { getUsers, getUserAuthenticated, postUser };
